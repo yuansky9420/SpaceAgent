@@ -1,0 +1,77 @@
+ html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Segoe UI', sans-serif;
+            overflow: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg,
+            #ffecd2,
+            #fcb69f,
+            #a1c4fd,
+            #fbc2eb,
+            #a6c1ee
+            );
+            background-size: 200% 200%;
+            animation: gradientMove 20s ease infinite;
+            z-index: -1;
+        }
+
+        @keyframes gradientMove {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .center-container {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            z-index: 1;
+            position: relative;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 1.5rem;
+            padding: 3rem 2rem;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.15);
+            color: #333;
+            text-align: center;
+            max-width: 600px;
+        }
+
+        .btn-primary {
+            background-color: #0078d4;
+            border: none;
+        }
+
+        .btn-outline-dark:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        .btn {
+            border-radius: 2rem;
+            padding: 0.6rem 1.5rem;
+        }
+
+        h1 span {
+            color: #0078d4;
+        }

@@ -1,0 +1,161 @@
+/* 变量定义 */
+:root {
+    --primary-color: #0078d4;
+    --primary-hover: #0056b3;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --danger-color: #ef4444;
+    --bg-white: #ffffff;
+    --bg-light: #f8f9fa;
+    --border-color: rgba(0, 0, 0, 0.1);
+    
+    /* 尺寸变量 */
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2.5rem;
+    --radius-md: 0.75rem;
+    --radius-lg: 1rem;
+    --radius-full: 2rem;
+}
+
+/* 基础样式 */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #fcb69f, #a1c4fd, #fbc2eb);
+    background-size: 200% 200%;
+}
+
+/* 布局容器 */
+.center-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 卡片样式 */
+.card-box {
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    max-width: 420px;
+    width: 100%;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+/* 标题样式 */
+.title-row {
+    position: relative;
+    margin-bottom: var(--spacing-lg);
+    padding-top: var(--spacing-md);
+}
+
+.title-row h1 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.title-row h1 span {
+    color: var(--primary-color);
+}
+
+/* 关闭按钮样式 */
+.home-link {
+    position: absolute;
+    top: -1rem;
+    right: -1rem;
+    color: var(--text-secondary);
+    font-size: 1.25rem;
+    padding: var(--spacing-sm);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.home-link:hover {
+    color: var(--danger-color);
+    background-color: rgba(0, 0, 0, 0.05);
+    text-decoration: none;
+}
+
+.home-link i {
+    line-height: 1;
+}
+
+/* 表单控件样式 */
+.form-control {
+    border-radius: var(--radius-md);
+}
+
+/* 按钮样式 */
+.btn-primary {
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: var(--radius-full);
+    padding: 0.625rem var(--spacing-lg);
+    transition: background-color 0.2s ease;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+
+/* 链接样式 */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+}
+
+/* 动画效果 */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* 清理无用样式 */
+.home-btn,
+.position-fixed,
+.btn-home {
+    display: none;
+}
+
+/* 调整表单相关间距 */
+.mb-4 {
+    margin-bottom: 1.25rem !important;
+}
+
+.mt-3 {
+    margin-top: 1rem !important;
+}

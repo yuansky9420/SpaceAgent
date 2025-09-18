@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpaceAgent AI</title>
+    
+    <!-- CSS 引用 -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/atom-one-dark.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-icons.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/chat.css') }}">
+    
+    <!-- JavaScript 引用 -->
+    <script src="{{ url_for('static', filename='js/marked.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/highlight.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/chat-main.js') }}"></script>
+</head>
+
+<body>
+    <div class="chat-container">
+        <!-- 聊天头部 -->
+        <div class="chat-header">
+            <div class="header-content d-flex justify-content-between">
+                <!-- 左侧内容 -->
+                <div class="header-left">
+                    <div class="assistant-info mb-2">
+                        <h4 class="header-title d-flex align-items-center">
+                            SpaceAgent 小助手
+                            <span class="status-badge ms-2">在线</span>
+                        </h4>
+                    </div>
+                    <div class="model-selector">
+                        <label class="form-label mb-0 me-2">当前模型:</label>
+                        <select class="form-select form-select-sm d-inline-block w-auto" id="modelSelect">
+                            <!-- 选项将通过 JavaScript 动态加载 -->
+                        </select>
+                    </div>
+                </div>
+
+                <!-- 右侧内容 -->
+                <div class="header-right">
+                    <div class="user-info mb-2 text-end d-flex align-items-center justify-content-end">
+                        <div class="d-flex align-items-center">
+                            <span class="text-muted">当前用户：</span>
+                            <span class="fw-bold username-truncate ms-1">{{ session['username'] }}</span>
+                        </div>
+                        <a href="{{ url_for('logout') }}" class="btn btn-sm btn-outline-secondary ms-2">
+                            <i class="bi bi-box-arrow-right"></i> 退出登录
+                        </a>
+                    </div>
+                    <div class="chat-controls text-end">
+                        <div class="d-flex align-items-center justify-content-end">
+                            <div class="history-control d-inline-flex align-items-center me-4">
+                                <span class="history-text me-2">保存历史</span>
+                                <div class="form-check form-switch p-0">
+                                    <input class="form-check-input m-0" type="checkbox" id="saveHistorySwitch" checked>
+                                </div>
+                            </div>
+                            <button class="btn btn-sm btn-outline-danger" id="clearChatBtn">
+                                <i class="bi bi-trash"></i> 清除聊天记录
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 聊天消息区域 -->
+        <div class="chat-messages" id="chatMessages">
+        </div>
+
+        <!-- 聊天输入区域 -->
+        <div class="chat-input">
+            <div class="input-wrapper">
+                <textarea class="form-control" id="messageInput" placeholder="输入您的问题..." aria-label="输入消息" rows="1"></textarea>
+                <button class="btn btn-send" id="sendButton">
+                    <i class="bi bi-send-fill" id="sendIcon"></i>
+                    <i class="bi bi-arrow-repeat spin-animation d-none" id="loadingIcon"></i>
+                    <span>发送</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页面底部的 JavaScript 引用 -->
+    <!-- Toast 消息通知 -->
+    <div class="toast-container position-fixed top-0 start-50 translate-middle-x p-3">
+        <div id="emptyInputToast" class="toast align-items-center text-center" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-body">
+                <i class="bi bi-info-circle"></i>
+                <span>请输入您的问题后再发送</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+</body>
+
+</html>

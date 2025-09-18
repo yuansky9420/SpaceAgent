@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>SpaceAgent 欢迎</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}"/>
+</head>
+<body>
+<div class="center-container">
+    <div class="glass-card">
+        <h1 class="mb-3 fw-bold">欢迎来到 <span>SpaceAgent</span></h1>
+        <p class="mb-4 fs-5">
+            在线AI对话平台，智能辅助你的每一步。<br>
+            无论是学习、工作还是灵感激发，SpaceAgent 都能成为你的得力助手。
+        </p>
+        <div class="d-flex justify-content-center gap-3">
+            <a href="/login" class="btn btn-primary">登录</a>
+            <a href="/register" class="btn btn-outline-dark">注册</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
